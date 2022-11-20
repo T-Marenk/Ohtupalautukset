@@ -1,9 +1,11 @@
 class Player:
-    def __init__(self, name, nationality, team, games):
+    def __init__(self, name, nationality, team, assists, goals):
         self.name = name
         self.nationality = nationality
         self.team = team
-        self.games = games
+        self.assists = assists
+        self.goals = goals
+        self.points = goals + assists
     
     def __str__(self):
-        return f'Name: {self.name} Team: {self.team} Nationality: {self.nationality} Games: {self.games}' 
+        return f'{self.name:20} {self.goals} + {self.assists} = {self.points}' 
