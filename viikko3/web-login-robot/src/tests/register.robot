@@ -10,7 +10,8 @@ Register With Valid Username And Password
     Set Password  teesken123
     Set Password Confirmation  teesken123
     Submit Credentials
-    
+    Register Should Succeed
+ 
 Register With Too Short Username And Valid Password
     Set Username  te
     Set Password  teesken123  
@@ -32,6 +33,30 @@ Register With Nonmatching Password And Password Confirmation
     Submit Credentials
     Register Should Fail With Message  Passwords do not match 
 
+Login After Successful Registration
+    Set Username  tee
+    Set Password  teesken123
+    Set Password Confirmation  teesken123
+    Submit Credentials
+    Go To Login Page
+    Login Page Should Be Open
+    Set Username  tee
+    Set Password  teesken123
+    Submit Login Credentials
+    Login Should Succeed
+    
+Login After Failed Registration 
+    Set Username  te
+    Set Password  teesken123  
+    Set Password Confirmation  teesken123
+    Submit Credentials
+    Go To Login Page
+    Login Page Should Be Open
+    Set Username  te
+    Set Password  teesken123
+    Submit Login Credentials
+    Login Should Fail With Message  Invalid username or password
+
 *** Keywords ***
 Create User And Go To Register Page
     Create User  testi  testi123
@@ -39,7 +64,15 @@ Create User And Go To Register Page
     Register Page Should Be Open
 
 Register Should Succeed
+    Welecome Page Should Be Open
+
+Login Should Succeed
     Main Page Should Be Open
+
+Login Should Fail With Message
+    [Arguments]  ${message}
+    Login Page Should Be Open
+    Page Should Contain  ${message}
 
 Register Should Fail With Message
     [Arguments]  ${message}
@@ -60,3 +93,6 @@ Set Password Confirmation
 
 Submit Credentials
     Click Button  Register
+
+Submit Login Credentials
+    Click Button  Login
