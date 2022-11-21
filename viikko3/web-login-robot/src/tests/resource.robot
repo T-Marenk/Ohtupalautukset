@@ -4,8 +4,8 @@ Library  ../AppLibrary.py
 
 *** Variables ***
 ${SERVER}  localhost:5000
-${BROWSER}  chrome
-${DELAY}  0.5 seconds
+${BROWSER}  headlesschrome
+${DELAY}  0 seconds
 ${HOME URL}  http://${SERVER}
 ${LOGIN URL}  http://${SERVER}/login
 ${REGISTER URL}  http://${SERVER}/register
@@ -28,5 +28,8 @@ Register Page Should Be Open
 Go To Login Page
     Go To  ${LOGIN URL}
 
-Go to Main Page
-    Go to  ${HOME URL}
+Go To Main Page
+    Go To  ${HOME URL}
+
+Go To Register Page
+    Go To  ${REGISTER URL}
