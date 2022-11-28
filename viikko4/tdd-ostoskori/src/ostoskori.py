@@ -15,8 +15,8 @@ class Ostoskori:
 
     def hinta(self):
         hinta = 0
-        for tuote in self.kori:
-            hinta += int(tuote.hinta())
+        for ostos in self.kori:
+            hinta += int(ostos.hinta())
         return hinta
         # kertoo korissa olevien ostosten yhteenlasketun hinnan
 
