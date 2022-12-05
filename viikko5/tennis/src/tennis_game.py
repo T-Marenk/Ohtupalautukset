@@ -11,21 +11,23 @@ class TennisGame:
         else:
             self.player2_score = self.player2_score + 1
 
+    def get_equal_score_value(self):
+            if self.player1_score == 0:
+                return "Love-All"
+            elif self.player1_score == 1:
+                return "Fifteen-All"
+            elif self.player1_score == 2:
+                return "Thirty-All"
+            else:
+                return "Deuce"
+
     def get_score(self):
         score = ""
         temp_score = 0
 
         if self.player1_score == self.player2_score:
-            if self.player1_score == 0:
-                score = "Love-All"
-            elif self.player1_score == 1:
-                score = "Fifteen-All"
-            elif self.player1_score == 2:
-                score = "Thirty-All"
-            elif self.player1_score == 3:
-                score = "Forty-All"
-            else:
-                score = "Deuce"
+            score = self.get_equal_score_value()
+
         elif self.player1_score >= 4 or self.player2_score >= 4:
             minus_result = self.player1_score - self.player2_score
 
