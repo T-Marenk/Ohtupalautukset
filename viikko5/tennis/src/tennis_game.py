@@ -43,7 +43,7 @@ class TennisGame:
                 current_score += "Fifteen"
             elif player_score == 2:
                 current_score += "Thirty"
-            elif player_score == 3:
+            else:
                 current_score += "Forty"
         return current_score
 
