@@ -59,3 +59,10 @@ class Or:
                 return True
 
         return False
+
+class QueryBuilder:
+    def __init__(self):
+        self._matcher = All()
+    
+    def build(self):
+        return self._matcher
